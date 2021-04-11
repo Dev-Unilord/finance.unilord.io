@@ -9,83 +9,194 @@ function Pools() {
   //     clearInterval(timerInstance);
   //   };
   // }, [time]);
+  const [isOpen1, setIsOpen1] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
 
   return (
     <Container className="Pools" id="Pools">
-      <Content className="column">
-        <img src="./images/logo-peer.svg" />
-        <span className="name">PEER</span>
-        <span className="APY">APY: 30.00%</span>
-        <Line />
-        <span className="countdown">00.00.00:00</span>
-        <span className="locked">PEER 000,000,000.00 PEER</span>
-        <span className="lockedValue">TVL $999,999,999.00 PEER Locked</span>
-        <BtnStake>
-          <span>Stake</span>
-          <img src="./images/cross-right.svg" />
-        </BtnStake>
-      </Content>
-      <LineV />
-      <Content className="sub">
-        <div className="amount">
-          <span className="text">PEER Locked:</span>
-          <span className="value">000,000,000.00</span>
-          <span className="symbol">PEER</span>
-        </div>
-        <div className="amount" style={{ marginTop: "10px" }}>
-          <span className="text">USDT Mined:</span>
-          <span className="value">000,000,000.00</span>
-          <span className="symbol">USDT</span>
-        </div>
-        <div className="amount" style={{ marginTop: "25px" }}>
-          <span className="text">Balance:</span>
-          <span className="value">000,000,000.00</span>
-          <span className="symbol">PEER</span>
-        </div>
-        <input
-          type="text"
-          className="amountStake"
-          placeholder="Enter the amount of stake"
-        />
-        <div className="selected" style={{ marginTop: "3px" }}>
-          <span className="text">Selected:</span>
-          <span className="value">000,000,000.00</span>
-        </div>
-        <PercentBtns>
-          <div>
-            <span>25%</span>
+      <Title>
+        <span>LORD Pool</span>
+      </Title>
+      <Pool>
+        <Content className="column">
+          <img src="./images/logo-peer.svg" />
+          <span className="name">PEER</span>
+          <span className="APY">APY: 30.00%</span>
+          <Line />
+          <span className="countdown">00.00.00:00</span>
+          <span className="locked">PEER 000,000,000.00 PEER</span>
+          <span className="lockedValue">TVL $999,999,999.00 PEER Locked</span>
+          <BtnStake
+            onClick={() => {
+              setIsOpen1(!isOpen1);
+            }}
+          >
+            <span>Stake</span>
+            <img src={`./images/cross-${isOpen1 ? "left" : "right"}.svg`} />
+          </BtnStake>
+        </Content>
+        <LineV className={isOpen1 ? "" : "hide"} />
+        <Content className={"sub " + (isOpen1 ? "" : "hide")}>
+          <div className="amount">
+            <span className="text">PEER Locked:</span>
+            <span className="value">000,000,000.00</span>
+            <span className="symbol">PEER</span>
           </div>
-          <div>
-            <span>50%</span>
+          <div className="amount" style={{ marginTop: "10px" }}>
+            <span className="text">USDT Mined:</span>
+            <span className="value">000,000,000.00</span>
+            <span className="symbol">USDT</span>
           </div>
-          <div>
-            <span>75%</span>
+          <div className="amount" style={{ marginTop: "25px" }}>
+            <span className="text">Balance:</span>
+            <span className="value">000,000,000.00</span>
+            <span className="symbol">PEER</span>
           </div>
-          <div>
-            <span>100%</span>
+          <input
+            type="text"
+            className="amountStake"
+            placeholder="Enter the amount of stake"
+          />
+          <div className="selected" style={{ marginTop: "3px" }}>
+            <span className="text">Selected:</span>
+            <span className="value">000,000,000.00</span>
           </div>
-        </PercentBtns>
-        <TwoBtns>
-          <div>
-            <span>Approve</span>
+          <PercentBtns>
+            <div>
+              <span>25%</span>
+            </div>
+            <div>
+              <span>50%</span>
+            </div>
+            <div>
+              <span>75%</span>
+            </div>
+            <div>
+              <span>100%</span>
+            </div>
+          </PercentBtns>
+          <TwoBtns>
+            <div>
+              <span>Approve</span>
+            </div>
+            <div>
+              <span>Unstake</span>
+            </div>
+          </TwoBtns>
+          <StakeBtn>
+            <span>Stake</span>
+          </StakeBtn>
+        </Content>
+      </Pool>
+      <Pool>
+        <Content className="column">
+          <img src="./images/logo-peer.svg" />
+          <span className="name">PEER - LP</span>
+          <span className="APY">APY: 30.00%</span>
+          <Line />
+          <span className="countdown">00.00.00:00</span>
+          <span className="locked">PEER 000,000,000.00 PEER</span>
+          <span className="lockedValue">TVL $999,999,999.00 PEER Locked</span>
+          <BtnStake
+            onClick={() => {
+              setIsOpen2(!isOpen2);
+            }}
+          >
+            <span>Stake</span>
+            <img src={`./images/cross-${isOpen2 ? "left" : "right"}.svg`} />
+          </BtnStake>
+        </Content>
+        <LineV className={isOpen2 ? "" : "hide"} />
+        <Content className={"sub " + (isOpen2 ? "" : "hide")}>
+          <div className="amount">
+            <span className="text">PEER Locked:</span>
+            <span className="value">000,000,000.00</span>
+            <span className="symbol">PEER</span>
           </div>
-          <div>
-            <span>Unstake</span>
+          <div className="amount" style={{ marginTop: "10px" }}>
+            <span className="text">USDT Mined:</span>
+            <span className="value">000,000,000.00</span>
+            <span className="symbol">USDT</span>
           </div>
-        </TwoBtns>
-        <StakeBtn>
-          <span>Stake</span>
-        </StakeBtn>
-      </Content>
+          <div className="amount" style={{ marginTop: "25px" }}>
+            <span className="text">Balance:</span>
+            <span className="value">000,000,000.00</span>
+            <span className="symbol">PEER</span>
+          </div>
+          <input
+            type="text"
+            className="amountStake"
+            placeholder="Enter the amount of stake"
+          />
+          <div className="selected" style={{ marginTop: "3px" }}>
+            <span className="text">Selected:</span>
+            <span className="value">000,000,000.00</span>
+          </div>
+          <PercentBtns>
+            <div>
+              <span>25%</span>
+            </div>
+            <div>
+              <span>50%</span>
+            </div>
+            <div>
+              <span>75%</span>
+            </div>
+            <div>
+              <span>100%</span>
+            </div>
+          </PercentBtns>
+          <TwoBtns>
+            <div>
+              <span>Approve</span>
+            </div>
+            <div>
+              <span>Unstake</span>
+            </div>
+          </TwoBtns>
+          <StakeBtn>
+            <span>Stake</span>
+          </StakeBtn>
+        </Content>
+      </Pool>
     </Container>
   );
 }
+const Title = styled.div`
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  margin-left: calc(30vw + 100px);
+  span {
+    width: 198px;
+    height: 45px;
+    font-family: Times New Roman;
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 1.18;
+    text-align: center;
+    color: #ffffff;
+  }
+`;
+const Pool = styled.div`
+  display: flex;
+  margin: auto 0;
+  margin-left: 35vw;
+  width: 647px;
+  object-fit: contain;
+  background-color: #000000;
+`;
 const Container = styled.div`
   display: flex;
   width: 100vw;
   min-width: 1280px;
   height: 100vh;
   min-height: 480px;
+  flex-direction: column;
+  .hide {
+    display: none;
+  }
   .column {
     flex-direction: column;
     img {
@@ -201,7 +312,6 @@ const Content = styled.div`
   width: 290px;
   height: 350px;
   margin: auto 0;
-  margin-left: 35vw;
 `;
 const Line = styled.div`
   margin: 0 auto;
