@@ -1,25 +1,14 @@
 import Gnb from "./component/Desktop/gnb";
-import Home from "./component/Desktop/home";
-import About from "./component/Desktop/about";
-import Services from "./component/Desktop/services";
-import Reference from "./component/Desktop/reference";
-import Disclaimer from "./component/Desktop/disclaimer";
+import Pools from "./component/Desktop/pools";
 import Modal from "./component/Desktop/modal";
 import React, { useState, useEffect } from "react";
 
 function Desktop() {
   const [display, setDisplay] = useState(false);
   const [type, setType] = useState("pool");
-  const [choosen, choise] = useState("Home");
+  const [choosen, choise] = useState("Pools");
 
-  const position = [
-    "Home",
-    "About",
-    "Services",
-    "Services",
-    "Reference",
-    "Disclaimer"
-  ];
+  const position = ["Pools"];
 
   useEffect(() => {
     window.addEventListener("scroll", () => onScroll());
@@ -36,11 +25,7 @@ function Desktop() {
   return (
     <div className="Desktop">
       <Gnb choosen={choosen} choise={choise} />
-      <Home />
-      <About />
-      <Services setType={setType} display={display} setDisplay={setDisplay} />
-      <Reference />
-      <Disclaimer />
+      <Pools />
       <Modal type={type} display={display} setDisplay={setDisplay} />
       <style jsx global>{`
         body {

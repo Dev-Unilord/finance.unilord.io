@@ -23,18 +23,18 @@ function Gnb({ display, setDisplay }) {
         </Logo>
         <Nav>
           <div onClick={() => Scroll("Home")}>
-            <span>HOME</span>
+            <span>Lord Pools</span>
           </div>
           <div onClick={() => Scroll("About")}>
             <span>ABOUT</span>
           </div>
-          <div onClick={() => Scroll("Services")}>
+          <div>
             <span>SERVICES</span>
           </div>
-          <div onClick={() => Scroll("Reference")}>
+          <div>
             <span>REFERENCE</span>
           </div>
-          <div onClick={() => Scroll("Disclaimer")}>
+          <div>
             <span>DISCLAIMER</span>
           </div>
         </Nav>

@@ -10,45 +10,44 @@ function Gnb({ choosen, choise }) {
   return (
     <Container className="Gnb">
       <Content>
-        <Logo onClick={() => Scroll("Home")}>
+        <Logo onClick={() => Scroll("Pools")}>
           <img src="./images/logo.svg" />
           <span>UNILORD</span>
         </Logo>
         <Nav>
           <div
             className={"nav " + (choosen == "Home" ? "choosen" : "")}
-            onClick={() => Scroll("Home")}
+            onClick={() => (window.location = "https://unilord.io")}
           >
             <NLine />
             <span>HOME</span>
           </div>
           <div
-            className={"nav " + (choosen == "About" ? "choosen" : "")}
-            onClick={() => Scroll("About")}
+            className={"nav " + (choosen == "Pools" ? "choosen" : "")}
+            onClick={() => Scroll("Pools")}
           >
             <NLine />
-            <span>ABOUT</span>
+            <span>Lord Pools</span>
           </div>
           <div
-            className={"nav " + (choosen == "Services" ? "choosen" : "")}
-            onClick={() => Scroll("Services")}
+            className={"nav disabled " + (choosen == "Swap" ? "choosen" : "")}
           >
             <NLine />
-            <span>SERVICES</span>
+            <span>Lord Swap</span>
           </div>
           <div
-            className={"nav " + (choosen == "Reference" ? "choosen" : "")}
-            onClick={() => Scroll("Reference")}
+            className={
+              "nav disabled " + (choosen == "Finance" ? "choosen" : "")
+            }
           >
             <NLine />
-            <span>REFERENCE</span>
+            <span>Lord Finance</span>
           </div>
           <div
-            className={"nav " + (choosen == "Disclaimer" ? "choosen" : "")}
-            onClick={() => Scroll("Disclaimer")}
+            className={"nav disabled " + (choosen == "About" ? "choosen" : "")}
           >
             <NLine />
-            <span>DISCLAIMER</span>
+            <span>About Lord</span>
           </div>
         </Nav>
       </Content>
@@ -125,6 +124,9 @@ const Nav = styled.div`
       margin-left: 0px;
       font-weight: bold;
     }
+  }
+  .disabled {
+    cursor: not-allowed;
   }
 `;
 const NLine = styled.div`
