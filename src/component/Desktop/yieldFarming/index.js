@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Pool from "./pool";
+import YieldFarming from "./yieldFarming";
 import axios from "axios";
 
 function StartInterval(callback, t) {
@@ -20,27 +20,29 @@ function Pools({ name, web3, account, connectWallet, pools }) {
     return clearInterval(Interval);
   }, []);
   return (
-    <Container className="Pools" id="Staking">
+    <Container className="YieldFarming" id="YieldFarming">
       <Title>
-        <span>LORD Pool<br></br><a>Staking</a></span>
+        <span>
+          LORD Pool<br></br><a>Yield Farming</a>
+        </span>
       </Title>
-      <Pool
-        name="PEER"
+      <YieldFarming
+        name="LORD"
         stakePrice={prices.unilord ? prices.unilord.usd : 0}
         rewardPrice={prices.weth ? prices.weth.usd : 0}
         web3={web3}
         account={account}
         connectWallet={connectWallet}
-        pool={pools ? pools["PEER"] : undefined}
+        pool={pools ? pools["LORD"] : undefined}
       />
-      <Pool
-        name="PEER-LP"
+      <YieldFarming
+        name="LORD-LP"
         stakePrice={prices.unilord ? prices.unilord.usd * 614 : 0}
         rewardPrice={prices.weth ? prices.weth.usd : 0}
         web3={web3}
         account={account}
         connectWallet={connectWallet}
-        pool={pools ? pools["PEERLP"] : undefined}
+        pool={pools ? pools["LORDLP"] : undefined}
       />
     </Container>
   );
@@ -62,7 +64,7 @@ const Title = styled.div`
     color: #ffffff;
   }
   a {
-    color: #29a7ff;
+    color: #e8164f;
   }
 `;
 const Container = styled.div`

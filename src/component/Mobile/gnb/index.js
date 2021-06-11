@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-function Gnb({ display, setDisplay }) {
+function Gnb({ display, setDisplay, account, connectWallet, choosen, choise }) {
   function Scroll(section) {
     window.location = "#" + section;
+    choise(!display);
     setDisplay(!display);
   }
 
@@ -18,30 +19,72 @@ function Gnb({ display, setDisplay }) {
         <img src="./images/logo.svg" />
       </Left>
       <Content>
-        <Logo onClick={() => Scroll("Home")}>
+        <Logo onClick={() => (window.location = "https://unilord.io")}>
           <span>UNILORD</span>
         </Logo>
+        <ConnectWallet onClick={() => connectWallet()}>
+          <span>
+            {account
+              ? account.substring(0, 8) + "..." + account.substring(36, 42)
+              : "Connect wallet"}
+          </span>
+        </ConnectWallet>
         <Nav>
-          <div onClick={() => Scroll("Home")}>
-            <span>Lord Pools</span>
+          <div onClick={() => (window.location = "https://unilord.io")}>
+            <span>Home</span>
           </div>
-          <div onClick={() => Scroll("About")}>
-            <span>ABOUT</span>
+          <div className="pools">
+            <span onClick={() => Scroll("Staking")}>Lord Pools</span>
+            <div className="items" onClick={() => Scroll("Staking")}>
+              Staking
+            </div>
+            <div className="items" onClick={() => Scroll("YieldFarming")}>
+              Yield Farming
+            </div>
+          </div>
+          <div onClick={() => Scroll("Swap")}>
+            <span>Lord Swap</span>
           </div>
           <div>
-            <span>SERVICES</span>
+            <span>Lord Finance</span>
           </div>
-          <div>
-            <span>REFERENCE</span>
+          <div onClick={() => (window.location = "https://snapshot.org/#/")}>
+            <span>Vote</span>
           </div>
-          <div>
-            <span>DISCLAIMER</span>
+          <div
+            onClick={() =>
+              (window.location =
+                "https://unilord.medium.com/introducing-unilord-3e52ffa2032c")
+            }
+          >
+            <span>About Lord</span>
           </div>
         </Nav>
       </Content>
     </Container>
   );
 }
+const ConnectWallet = styled.div`
+  display: flex;
+  margin-top: 60px;
+  margin-left: -5vw;
+  width: 45vw;
+  height: 30px;
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.6);
+  background-color: #000000;
+  span {
+    margin: auto auto;
+    font-family: Times New Roman;
+    font-size: 15px;
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.13;
+    text-align: center;
+    color: #29a7ff;
+  }
+`;
 
 const Container = styled.div`
   display: flex;
@@ -110,6 +153,23 @@ const Nav = styled.div`
       display: none;
     }
     span {
+      font-family: Times New Roman;
+      font-size: 15px;
+      text-align: left;
+      color: #ffffff;
+    }
+  }
+  .pools {
+    display: block;
+    font-family: Times New Roman;
+    font-size: 15px;
+    text-align: left;
+    color: #ffffff;
+
+    .items {
+      display: block;
+      margin-top: 10px;
+      margin-left: 24px;
       font-family: Times New Roman;
       font-size: 15px;
       text-align: left;

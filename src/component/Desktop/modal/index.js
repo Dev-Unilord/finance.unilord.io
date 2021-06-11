@@ -1,37 +1,18 @@
 import styled from "styled-components";
 
-function Modal({ type, display, setDisplay }) {
-  let image, text;
-  switch (type) {
-    case "pool":
-      image = "./images/modal_pool.png";
-      text =
-        "Decentralized way of earning interest. Lord Pool offers full range of deposit services";
-      break;
-    case "swap":
-      image = "./images/modal_swap.png";
-      text = "Gateway from Mon to Lord to leverage your interest";
-      break;
-    case "finance":
-      image = "./images/modal_finance.png";
-      text =
-        "Lend your Lord to earn Interest Dual incentives both on lending and borrowing";
-      break;
-  }
-
+function Modal({ modalOpen, setModalOpen }) {
   return (
     <Container
-      style={{ display: display ? "flex" : "none" }}
-      onClick={() => setDisplay(!display)}
+      style={{ display: modalOpen ? "flex" : "none" }}
+      onClick={() => setModalOpen(!modalOpen)}
     >
       <Content>
-        <img
-          onClick={() => setDisplay(!display)}
-          className="cross"
-          src="./images/cross.svg"
-        />
-        <img className="image" src={image} />
-        <span className="text">{text}</span>
+        <span className="text">
+          Pool is currently not open. Please check the staking schedules.
+        </span>
+        <Confirm>
+          <span>Confirm</span>
+        </Confirm>
       </Content>
     </Container>
   );
@@ -49,9 +30,10 @@ const Content = styled.div`
   flex-direction: column;
   margin: auto auto;
   width: 568px;
-  height: 335px;
+  height: 187px;
   object-fit: contain;
-  box-shadow: 0 0 20px 0 #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 #ffffff;
   background-color: #000000;
 
   .cross {
@@ -69,9 +51,9 @@ const Content = styled.div`
   }
   .text {
     margin: auto auto;
-    width: 424px;
+    margin-top: 70px;
+    width: 500px;
     height: 67px;
-    font-family: Times New Roman;
     font-size: 20px;
     font-style: italic;
     line-height: 20px;
@@ -79,5 +61,21 @@ const Content = styled.div`
     color: #ffffff;
   }
 `;
-
+const Confirm = styled.div`
+  display: flex;
+  margin: auto auto;
+  margin-bottom: 35px;
+  width: 86px;
+  height: 22px;
+  object-fit: contain;
+  border-radius: 20px;
+  background-color: #ffffff;
+  span {
+    margin: auto auto;
+    font-family: Times New Roman;
+    font-size: 12px;
+    line-height: 1.25;
+    color: #000000;
+  }
+`;
 export default Modal;
