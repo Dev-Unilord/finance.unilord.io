@@ -12,7 +12,10 @@ function Gnb({ choosen, choise, connectWallet, account }) {
       <Content>
         <Logo onClick={() => Scroll("Staking")}>
           <img src="./images/logo.svg" />
-          <span>UNILORD</span>
+          <div className="name">
+            <div>UNILORD</div>
+            <div>FINANCE</div>
+          </div>
         </Logo>
         <ConnectWallet onClick={() => connectWallet()}>
           <span>
@@ -147,17 +150,20 @@ const Logo = styled.div`
   display: flex;
   width: 200px;
   img {
+    margin: auto 0;
     width: 50px;
     height: 50px;
   }
-  span {
-    margin: auto auto;
-    margin-left: 9px;
-    font-family: NotoNastaliqUrdu;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: left;
-    color: #ffffff;
+  .name {
+    div {
+      margin: auto;
+      margin-left: 9px;
+      // font-family: NotoNastaliqUrdu;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: left;
+      color: #ffffff;
+    }
   }
 `;
 const Nav = styled.div`
